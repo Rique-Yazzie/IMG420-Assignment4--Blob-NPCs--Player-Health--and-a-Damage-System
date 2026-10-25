@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b3ee3t0lxg5kn"]
+
+[ext_resource type="Script" uid="uid://bpklnje1jj2bx" path="res://Yazzie_Rique_FantasyAdventure/scenes/blob_spawner.gd" id="1_mu67j"]
+[ext_resource type="PackedScene" uid="uid://jdgcq2u4gj6v" path="res://Yazzie_Rique_FantasyAdventure/scenes/levels/blob.tscn" id="2_uowkk"]
+
+[node name="BlobSpawner" type="Node2D" unique_id=1538319980]
+script = ExtResource("1_mu67j")
+blob_scene = ExtResource("2_uowkk")
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1272916353]
+
+[node name="SpawnPoint1" type="Marker2D" parent="." unique_id=2054254235]
+
+[node name="SpawnPoint2" type="Marker2D" parent="." unique_id=806002261]

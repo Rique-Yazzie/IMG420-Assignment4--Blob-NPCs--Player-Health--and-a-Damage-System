@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cxv3mnigffkti"]
+
+[ext_resource type="Script" uid="uid://bufild4np57vv" path="res://Yazzie_Rique_FantasyAdventure/scenes/ui/hitbox.gd" id="1_7xrdb"]
+[ext_resource type="Texture2D" uid="uid://bkspkelc1xhx7" path="res://Yazzie_Rique_FantasyAdventure/assests/art/badges & icons/spike.png" id="2_ekykw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8d6f4"]
+size = Vector2(190, 159)
+
+[node name="SpikeTrap" type="Area2D" unique_id=1726917948]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_7xrdb")
+damage = 20
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1992238955]
+texture = ExtResource("2_ekykw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1107268231]
+position = Vector2(0, 17.5)
+shape = SubResource("RectangleShape2D_8d6f4")

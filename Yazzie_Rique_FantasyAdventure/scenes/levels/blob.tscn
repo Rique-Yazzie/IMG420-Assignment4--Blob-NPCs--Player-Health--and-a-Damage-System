@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://jdgcq2u4gj6v"]
+
+[ext_resource type="Script" uid="uid://cjjhpukr1j7lo" path="res://Yazzie_Rique_FantasyAdventure/scenes/levels/blob_ai.gd" id="1_h0vs7"]
+[ext_resource type="Texture2D" uid="uid://cn4vk7aw1cpbl" path="res://Yazzie_Rique_FantasyAdventure/scenes/characters/very-first-pixel-art-thoughts-on-the-slime-blob-v0-w4xhflduzb1c1.webp" id="2_h0vs7"]
+[ext_resource type="Script" uid="uid://bufild4np57vv" path="res://Yazzie_Rique_FantasyAdventure/scenes/ui/hitbox.gd" id="3_5tlve"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_us0p7"]
+radius = 32.24903
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h0vs7"]
+radius = 180.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5tlve"]
+radius = 179.33768
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vrm05"]
+radius = 33.06055
+
+[node name="BlobMonster" type="CharacterBody2D" unique_id=835282047 groups=["Enemy"]]
+position = Vector2(630, 430)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_h0vs7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2056082923]
+shape = SubResource("CircleShape2D_us0p7")
+
+[node name="PlayerDetector" type="Area2D" parent="." unique_id=1126181659]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" unique_id=1386483921]
+shape = SubResource("CircleShape2D_h0vs7")
+
+[node name="BlobSprite" type="Sprite2D" parent="." unique_id=1162540169 groups=["Enemy"]]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_h0vs7")
+
+[node name="NavigationLink2D" type="NavigationLink2D" parent="." unique_id=1286439463]
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=261196725]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1267918250]
+shape = SubResource("CircleShape2D_5tlve")
+
+[node name="PatrolTmer" type="Timer" parent="." unique_id=1793620083]
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1098402120]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("3_5tlve")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1262154888]
+shape = SubResource("CircleShape2D_vrm05")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1977517351]
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

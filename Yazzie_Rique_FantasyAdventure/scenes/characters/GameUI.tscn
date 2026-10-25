@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cjkli8xbrscp2"]
+
+[ext_resource type="Texture2D" uid="uid://dp4kk3aiw8kb6" path="res://Yazzie_Rique_FantasyAdventure/assests/art/badges & icons/health meter-03.png" id="1_f04x7"]
+[ext_resource type="Texture2D" uid="uid://ctrsoc76dop0t" path="res://Yazzie_Rique_FantasyAdventure/assests/art/badges & icons/health meter-12.png" id="2_p8ogg"]
+[ext_resource type="Script" uid="uid://ladl4l6dybo7" path="res://Yazzie_Rique_FantasyAdventure/scenes/characters/TextureProgressBar.gd" id="3_vxwia"]
+
+[node name="GameUI" type="CanvasLayer" unique_id=949504652]
+
+[node name="Control" type="Control" parent="." unique_id=622579392]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerHealthBar" type="TextureProgressBar" parent="Control" unique_id=1289589593]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 23.0
+offset_right = 665.0
+offset_bottom = 153.0
+value = 100.0
+texture_under = ExtResource("1_f04x7")
+texture_progress = ExtResource("2_p8ogg")
+script = ExtResource("3_vxwia")

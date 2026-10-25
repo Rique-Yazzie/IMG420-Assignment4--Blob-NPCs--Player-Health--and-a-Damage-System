@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://cf41dyqkbpbtn"]
+
+[ext_resource type="Texture2D" uid="uid://bkociot7ekalg" path="res://Yazzie_Rique_FantasyAdventure/assests/art/background/BG_09.png" id="1_befgy"]
+[ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://Yazzie_Rique_FantasyAdventure/scenes/levels/player.tscn" id="2_tnstk"]
+[ext_resource type="Script" uid="uid://de2hu7un8y04r" path="res://Yazzie_Rique_FantasyAdventure/scenes/levels/player_health_bar.gd" id="2_y2nlq"]
+[ext_resource type="PackedScene" uid="uid://jdgcq2u4gj6v" path="res://Yazzie_Rique_FantasyAdventure/scenes/levels/blob.tscn" id="4_h7x2k"]
+[ext_resource type="Script" uid="uid://dry1tx5slc4ia" path="res://blob.gd" id="5_e1jps"]
+[ext_resource type="Texture2D" uid="uid://dp4kk3aiw8kb6" path="res://Yazzie_Rique_FantasyAdventure/assests/art/badges & icons/health meter-03.png" id="5_y2nlq"]
+[ext_resource type="PackedScene" uid="uid://cxv3mnigffkti" path="res://Yazzie_Rique_FantasyAdventure/scenes/levels/spike_trap.tscn" id="7_0ym46"]
+[ext_resource type="PackedScene" uid="uid://b3ee3t0lxg5kn" path="res://Yazzie_Rique_FantasyAdventure/scenes/blob_spawner.tscn" id="8_wlm8q"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_1sym6"]
+vertices = PackedVector2Array(1073.8828, 308.53906, 1140.9297, 311.6328, 1156.7422, 381.21094, 996.5781, 397.9297, 957.8672, 306.46094, 178.89844, 448.95313, -17.46875, 449.9375, -10.46875, 311.60156, 99.25, 306.9922, 99.25781, 307, 134.07031, 306.07813, 218.11719, 362.42188, 219.22656, 406.4375, 958.8672, 224.59375, 1074.8672, 231.40625, 697.3594, 649.96094, 494.10156, 422.60938, 493.09375, 318.85938, 641.40625, 316.8672, 735.7031, 617.3828, 180.89063, 645.09375, 814.5078, 584.2031, 783.9531, 298.60156, 648.39844, 203, 773.97656, 203, 943.03906, 571.53906, 990.1797, 493.89063)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9), PackedInt32Array(5, 9, 10, 11, 12), PackedInt32Array(4, 13, 14, 0), PackedInt32Array(15, 16, 17, 18, 19), PackedInt32Array(15, 20, 5, 12, 16), PackedInt32Array(21, 19, 18, 22, 4, 3), PackedInt32Array(18, 23, 24, 22), PackedInt32Array(25, 21, 3, 26)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1085, 222, 1084, 299, 1149, 302, 1169, 390, 1006, 407, 1000, 497, 949, 581, 817, 594, 741, 626, 701, 660, 171, 655, 169, 459, -28, 460, -20, 302, 99, 297, 137, 296, 228, 357, 229, 397, 484, 412, 483, 309, 632, 307, 639, 193, 783, 193, 793, 289, 948, 296, 949, 214)])
+
+[node name="Main_Game_Level" type="Node2D" unique_id=1153781259]
+
+[node name="GameUI" type="CanvasLayer" parent="." unique_id=2057255133]
+
+[node name="Control" type="Control" parent="GameUI" unique_id=635275435]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerHealthBar" type="TextureProgressBar" parent="GameUI/Control" unique_id=1434617717]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+value = 100.0
+texture_progress = ExtResource("5_y2nlq")
+script = ExtResource("2_y2nlq")
+
+[node name="Main_Game_Level_BG" type="Sprite2D" parent="." unique_id=1360935244]
+position = Vector2(574, 321)
+scale = Vector2(0.8272059, 0.8272059)
+texture = ExtResource("1_befgy")
+
+[node name="Player" parent="." unique_id=1332449855 instance=ExtResource("2_tnstk")]
+
+[node name="BlobMonster" parent="." unique_id=835282047 instance=ExtResource("4_h7x2k")]
+visible = false
+script = ExtResource("5_e1jps")
+patrol_speed = 40.0
+chase_speed = 90.0
+idle_time = 1.5
+
+[node name="SpikeTrap" parent="." unique_id=1726917948 instance=ExtResource("7_0ym46")]
+position = Vector2(74, 560)
+
+[node name="BlobSpawner" parent="." unique_id=1538319980 instance=ExtResource("8_wlm8q")]
+position = Vector2(998, 196)
+
+[node name="SpawnPoint1" parent="BlobSpawner" index="1" unique_id=2054254235]
+position = Vector2(-587, 428)
+
+[node name="SpawnPoint2" parent="BlobSpawner" index="2" unique_id=806002261]
+position = Vector2(-20, 100)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1612283735]
+navigation_polygon = SubResource("NavigationPolygon_1sym6")
+
+[editable path="BlobSpawner"]

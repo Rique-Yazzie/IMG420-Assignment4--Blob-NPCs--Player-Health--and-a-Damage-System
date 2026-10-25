@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cf41dyqkbpbtn"]
+
+[ext_resource type="Texture2D" uid="uid://bkociot7ekalg" path="res://Yazzie_Rique_FantasyAdventure/assests/art/background/BG_09.png" id="1_befgy"]
+[ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://Yazzie_Rique_FantasyAdventure/scenes/levels/player.tscn" id="2_tnstk"]
+[ext_resource type="Script" uid="uid://de2hu7un8y04r" path="res://Yazzie_Rique_FantasyAdventure/scenes/levels/player_health_bar.gd" id="2_y2nlq"]
+[ext_resource type="PackedScene" uid="uid://jdgcq2u4gj6v" path="res://Yazzie_Rique_FantasyAdventure/scenes/levels/blob.tscn" id="4_h7x2k"]
+[ext_resource type="Script" uid="uid://dry1tx5slc4ia" path="res://blob.gd" id="5_e1jps"]
+[ext_resource type="Texture2D" uid="uid://dp4kk3aiw8kb6" path="res://Yazzie_Rique_FantasyAdventure/assests/art/badges & icons/health meter-03.png" id="5_y2nlq"]
+
+[node name="Main_Game_Level" type="Node2D" unique_id=1153781259]
+
+[node name="GameUI" type="CanvasLayer" parent="." unique_id=2057255133]
+
+[node name="Control" type="Control" parent="GameUI" unique_id=635275435]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerHealthBar" type="TextureProgressBar" parent="GameUI/Control" unique_id=1434617717]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+value = 100.0
+texture_progress = ExtResource("5_y2nlq")
+script = ExtResource("2_y2nlq")
+
+[node name="Main_Game_Level_BG" type="Sprite2D" parent="." unique_id=1360935244]
+position = Vector2(574, 321)
+scale = Vector2(0.8272059, 0.8272059)
+texture = ExtResource("1_befgy")
+
+[node name="Player" parent="." unique_id=1332449855 instance=ExtResource("2_tnstk")]
+
+[node name="BlobMonster" parent="." unique_id=835282047 instance=ExtResource("4_h7x2k")]
+script = ExtResource("5_e1jps")
+patrol_speed = 40.0
+chase_speed = 90.0
+idle_time = 1.5
