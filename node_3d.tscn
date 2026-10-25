@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://mgp02mkor0at"]
+
+[ext_resource type="Texture2D" uid="uid://d0gey2lmc5fya" path="res://Yazzie_Rique_FantasyAdventure/assests/art/background/BG_04.png" id="1_a0tk4"]
+[ext_resource type="Texture2D" uid="uid://dgoune8uvhtwn" path="res://Yazzie_Rique_FantasyAdventure/assests/art/badges & icons/Scroll_04.png" id="2_r3fl7"]
+[ext_resource type="Texture2D" uid="uid://b8twuus2me8ug" path="res://Yazzie_Rique_FantasyAdventure/assests/art/badges & icons/Rique_Yazzie_text.png" id="3_jka67"]
+
+[node name="Node3D" type="Node3D" unique_id=44613532]
+
+[node name="Bg04" type="Sprite2D" parent="." unique_id=1678135298]
+position = Vector2(735, 353)
+texture = ExtResource("1_a0tk4")
+
+[node name="Scroll04" type="Sprite2D" parent="." unique_id=779950942]
+modulate = Color(1, 0.96862745, 0.94509804, 1)
+position = Vector2(49.125, 655.5)
+scale = Vector2(0.26354167, 0.26354167)
+texture = ExtResource("2_r3fl7")
+
+[node name="RiqueYazzieText" type="Sprite2D" parent="." unique_id=884585643]
+position = Vector2(1142, 592)
+texture = ExtResource("3_jka67")
